@@ -1,0 +1,28 @@
+#' modi: Multivariate outlier detection for incomplete survey data.
+#'
+#' The package modi is a collection of functions for multivariate outlier
+#' detection and imputation. The aim is to provide a set of functions which
+#' cope with missing values and take sampling weights into account. The original
+#' functions were developed in the EUREDIT project. This work was partially
+#' supported by the EU FP5 ICT programme, the Swiss Federal Office of Education
+#' and Science and the Swiss Federal Statistical Office. Subsequent development
+#' was in the AMELI project of the EU FP7 SSH Programme and also supported by the
+#' University of Applied Sciences and Arts Northwestern Switzerland (FHNW).
+#'
+#' @section modi functions:
+#' BACON-EEM algorithm in \code{BEM()}, Epidemic algorithm in \code{EAdet()} and
+#' \code{EAimp()}, Transformed Rank Correlations in \code{TRC()}, Gaussian
+#' imputation with MCD in \code{GIMCD()}.
+#'
+#' @references
+#' Béguin, C., and Hulliger, B. (2004). Multivariate oulier detection in incomplete
+#' survey data: The epidemic algorithm and transformed rank correlations. Journal of
+#' the Royal Statistical Society, A167 (Part 2.), pp. 275-294.
+#'
+#' Béguin, C., and Hulliger, B. (2008). The BACON-EEM Algorithm for Multivariate
+#' Outlier Detection in Incomplete Survey Data, Survey Methodology, Vol. 34, No. 1,
+#' pp. 91-103.
+#'
+#' @docType package
+#' @name modi
+NULL
