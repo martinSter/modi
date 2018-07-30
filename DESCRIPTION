@@ -11,7 +11,7 @@ Description: Algorithms for multivariate outlier detection when missing values o
     Algorithms are based on Mahalanobis distance or data depth. Imputation is based
     on the multivariate normal model or uses nearest neighbour donors. The algorithms 
     take sample designs, in particular weighting, into account.
-License: GPL-2
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
