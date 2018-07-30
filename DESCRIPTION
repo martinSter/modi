@@ -12,6 +12,8 @@ Description: Algorithms for multivariate outlier detection when missing values o
     on the multivariate normal model or uses nearest neighbour donors. The algorithms 
     take sample designs, in particular weighting, into account.
 License: MIT + file LICENSE
+URL: https://github.com/martinSter/modi
+BugReports: https://github.com/martinSter/modi/issues
 Encoding: UTF-8
 LazyData: true
 Imports:
