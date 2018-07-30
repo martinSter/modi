@@ -7,7 +7,7 @@
 weighted.var(x, w, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a vector with data.}
+\item{x}{a vector of data.}
 
 \item{w}{a vector of positive weights (may not have missings where x is observed).}
 

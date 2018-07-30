@@ -6,7 +6,7 @@
 #' values in \eqn{x}. The function calculates \deqn{\sum_{observed} w_i(x_i -
 #' weighted.mean(x, w, na.rm = TRUE))^2/((\sum_{observed} w_i) - 1)}
 #'
-#' @param x a vector with data.
+#' @param x a vector of data.
 #' @param w a vector of positive weights (may not have missings where x is observed).
 #' @param na.rm if \code{TRUE} remove missing values.
 #' @return The weighted variance of \code{x} with weights \code{w} (with missing values removed
