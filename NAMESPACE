@@ -3,6 +3,7 @@
 export(EAdet)
 export(MDmiss)
 export(PlotMD)
+export(Winsimp)
 export(weighted.quantile)
 export(weighted.var)
 importFrom(graphics,plot)
