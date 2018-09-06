@@ -38,7 +38,7 @@ MDmiss <- function(data, center, cov) {
   missings <- is.na(data)
 
   # count number of responded variables per observation
-  resp.dim <- apply(!missings,1,sum)
+  resp.dim <- apply(!missings, 1, sum)
 
   # center the data
   data <- sweep(data, 2, center)
@@ -48,14 +48,19 @@ MDmiss <- function(data, center, cov) {
 
   # loop over observations
   for (i in 1:n) {
+
     # for obs. i, if there are any responses, then compute mahalanobis dist
     if (resp.dim[i] > 0) {
+
       resp <- !missings[i, ]
       x <- data[i, resp]
       mdm[i] <- t(x) %*% solve(cov[resp, resp]) %*% x
+
       # if no responses, return NA
     } else {
+
       mdm[i] <- NA
+
     }
   }
 

@@ -13,7 +13,7 @@
 #' @param weights a vector of positive sampling weights.
 #' @param outind a logical vector with component \code{TRUE} for outliers.
 #' @param reach reach of the threshold function (usually set to the maximum
-#' distance to a nearest neighbour, see internal function \code{.EA.dist}).
+#' distance to a nearest neighbour, see internal function \code{EA.dist}).
 #' @param transmission.function form of the transmission function of distance d:
 #' \code{"step"} is a heaviside function which jumps to \code{1} at \code{d0},
 #' \code{"linear"} is linear between \code{0} and \code{d0}, \code{"power"} is
@@ -105,7 +105,7 @@ EAimp <- function(data, weights, outind, reach = "max",
 	weights <- as.single((n * weights) / np)
 
 	# Calculation of distances (independently of EAdet)
-  EA.dist.res <- .EA.dist(data, n = n, p = p, weights = weights, reach = reach,
+  EA.dist.res <- EA.dist(data, n = n, p = p, weights = weights, reach = reach,
                           transmission.function = transmission.function,
                           power = power, distance.type = distance.type,
                           maxl = maxl)
@@ -134,7 +134,7 @@ EAimp <- function(data, weights, outind, reach = "max",
   cat("\n Number of imputands is ", n.imp)
 
   # reach d0 is set to maximum in order to reach all
-  # outliers (max.min.di of .EA.dist)
+  # outliers (max.min.di of EA.dist)
   d0 <- reach
   cat("\n Reach for imputation is ", d0)
 
@@ -214,7 +214,7 @@ EAimp <- function(data, weights, outind, reach = "max",
 	      hprod[!imp.infected] <-
 	        hprod[!imp.infected] * apply(sweep(
 	          sweep(matrix(EA.dist.res$counterprobs[apply(
-	            as.matrix(which(!imp.infected)), 1, .ind.dijs,
+	            as.matrix(which(!imp.infected)), 1, ind.dijs,
 	            js = which(new.imp.infected), n = n)], sum(new.imp.infected),
 	            n - n.imp.infected), 1, weights[new.imp.infected], "^"), 2,
 	          weights[!imp.infected], "^"), 2, prod)
@@ -225,7 +225,7 @@ EAimp <- function(data, weights, outind, reach = "max",
 
 	          hprod[!imp.infected] <-
 	            hprod[!imp.infected] * EA.dist.res$counterprobs[apply(
-	              as.matrix(which(!imp.infected)), 1, .ind.dijs,
+	              as.matrix(which(!imp.infected)), 1, ind.dijs,
 	              js = which(new.imp.infected), n = n)]^(weights[new.imp.infected] *
 	                                                       weights[!imp.infected])
 

@@ -13,10 +13,10 @@
 #' the (squared) Mahalanobis distances, beyond which an observation is an
 #' outlier, is a standardised chisquare quantile at \code{(1 - alpha)}. For
 #' large data sets it may be better to choose \code{alpha / n} instead. The
-#' internal function \code{.EM.normal} is usually called from \code{BEM}.
-#' \code{.EM.normal} is implementing the EM-algorithm in such a way that
+#' internal function \code{EM.normal} is usually called from \code{BEM}.
+#' \code{EM.normal} is implementing the EM-algorithm in such a way that
 #' part of the calculations can be saved to be reused in the \code{BEM}
-#' algorithm. \code{.EM.normal} does not contain the computation of the
+#' algorithm. \code{EM.normal} does not contain the computation of the
 #' observed sufficient statistics, they will be computed in the main
 #' program of \code{BEM} and passed as parameters as well as the statistics
 #' on the missingness patterns.
@@ -244,7 +244,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
 
             }
 
-            EM.result <- .EM.normal(data = data[(s.id[1] + 1):n, , drop = FALSE],
+            EM.result <- EM.normal(data = data[(s.id[1] + 1):n, , drop = FALSE],
                                     weights = weights[(s.id[1] + 1):n], n = N, p = p,
                                     s.counts = s.counts[2:S], s.id = s.id[2:S] - s.id[1],
                                     S = S - 1, T.obs = T.obs,
@@ -257,7 +257,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
             } else {
 
               # case where all observations have missing items => EM
-              EM.result <- .EM.normal(data = data, weights, n = N, p = p,
+              EM.result <- EM.normal(data = data, weights, n = N, p = p,
                                       s.counts = s.counts, s.id = s.id, S,
                                       T.obs = T.obs,
                                       start.mean = apply(data, 2, weighted.mean,
@@ -349,7 +349,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
     T.obs.good <- matrix(0, p + 1, p + 1)
     T.obs.good[1, ] <- T.obs.good[, 1] <- c(-1, EM.mean.good)
     T.obs.good[2:(p + 1), 2:(p + 1)] <- EM.var.good * (N.good - 1) / N.good
-    T.obs.good <- .sweep.operator(T.obs.good, 1, TRUE) * N.good
+    T.obs.good <- sweep.operator(T.obs.good, 1, TRUE) * N.good
     T.obs.good.exist <- TRUE
 
     } else {
@@ -381,7 +381,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
         }
 
         EM.result.good <-
-          .EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = FALSE],
+          EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = FALSE],
                      weights = weights.good[(s.id.good[1] + 1):n.good], n = N.good, p = p,
                      s.counts = s.counts.good[2:S.good],
                      s.id = s.id.good[2:S.good] - s.id.good[1],
@@ -396,7 +396,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
 
           # case where all observations have missing items => EM
           EM.result.good <-
-            .EM.normal(data = data[good, , drop = FALSE],
+            EM.normal(data = data[good, , drop = FALSE],
                        weights = weights.good, n = N.good, p = p,
                        s.counts = s.counts.good, s.id = s.id.good,
                        S = S.good, T.obs = T.obs.good,
@@ -532,7 +532,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
       T.obs.good <- matrix(0, p + 1, p + 1)
       T.obs.good[1, ] <- T.obs.good[, 1] <- c(-1, EM.mean.good)
       T.obs.good[2:(p + 1), 2:(p + 1)] <- EM.var.good * (N.good - 1) / N.good
-      T.obs.good <- .sweep.operator(T.obs.good, 1, TRUE) * N.good
+      T.obs.good <- sweep.operator(T.obs.good, 1, TRUE) * N.good
       T.obs.good.exist <- TRUE
 
     } else {
@@ -606,7 +606,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
           }
 
         EM.result.good <-
-          .EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = F],
+          EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = F],
                      weights.good[(s.id.good[1] + 1):n.good], n = N.good, p = p,
                      s.counts = s.counts.good[2:S.good],
                      s.id = s.id.good[2:S.good] - s.id.good[1], S = S.good - 1,
@@ -621,7 +621,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
         T.obs.good <- matrix(0, p + 1, p + 1)
 
         EM.result.good <-
-          .EM.normal(data = data[good, , drop = F], weights.good,
+          EM.normal(data = data[good, , drop = F], weights.good,
                      n = N.good, p = p, s.counts = s.counts.good,
                      s.id = s.id.good, S = S.good, T.obs = T.obs.good,
                      start.mean = EM.mean.good, start.var = EM.var.good,
@@ -669,7 +669,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
       # case where some observations are complete,
       # more steps of EM with the sufficient
       # statistics computed before
-      EM.result.good <- .EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = F],
+      EM.result.good <- EM.normal(data = data[good[(s.id.good[1] + 1):n.good], , drop = F],
                                    weights.good[(s.id.good[1] + 1):n.good], n = N.good,
                                    p = p, s.counts = s.counts.good[2:S.good],
                                    s.id = s.id.good[2:S.good] - s.id.good[1],
@@ -681,7 +681,7 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
 
         # case where all observations have missing items =>
         # more steps of EM
-        EM.result.good <- .EM.normal(data = data[good, , drop = F], weights.good,
+        EM.result.good <- EM.normal(data = data[good, , drop = F], weights.good,
                                      n = N.good, p = p, s.counts = s.counts.good,
                                      s.id = s.id.good, S = S.good, T.obs = T.obs.good,
                                      start.mean = EM.mean.good, start.var = EM.var.good,

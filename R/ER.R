@@ -140,7 +140,7 @@ ER <- function(data, weights, alpha = 0.01, psi.par = c(2, 1.25), em.steps = 100
   }
 
   # call internal function to compute mean and covariance matrix
-  ER.result <- .ER.normal(data = data, weights, psi.par = psi.par, np = sum(weights),
+  ER.result <- ER.normal(data = data, weights, psi.par = psi.par, np = sum(weights),
                           p = p, s.counts = s.counts, s.id = s.id, S,
                           missing.items = missing.items, nb.missing.items,
                           start.mean = mean.start, start.var = var.start,

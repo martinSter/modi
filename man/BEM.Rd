@@ -77,10 +77,10 @@ while \code{v = 1} is robust but not affine equivariant. The threshold for
 the (squared) Mahalanobis distances, beyond which an observation is an
 outlier, is a standardised chisquare quantile at \code{(1 - alpha)}. For
 large data sets it may be better to choose \code{alpha / n} instead. The
-internal function \code{.EM.normal} is usually called from \code{BEM}.
-\code{.EM.normal} is implementing the EM-algorithm in such a way that
+internal function \code{EM.normal} is usually called from \code{BEM}.
+\code{EM.normal} is implementing the EM-algorithm in such a way that
 part of the calculations can be saved to be reused in the \code{BEM}
-algorithm. \code{.EM.normal} does not contain the computation of the
+algorithm. \code{EM.normal} does not contain the computation of the
 observed sufficient statistics, they will be computed in the main
 program of \code{BEM} and passed as parameters as well as the statistics
 on the missingness patterns.

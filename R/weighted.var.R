@@ -19,21 +19,26 @@
 #' w <- rchisq(100, 2)
 #' weighted.var(x, w, na.rm = TRUE)
 #' @export
+#' @importFrom stats weighted.mean
 weighted.var <- function (x, w, na.rm = FALSE) {
 
   if (missing(w)) {
+
     # if weights are missing, we set them to 1
     w <- rep.int(1, length(x))
+
   } else if (length(w) != length(x)) {
+
     # if data and weights do not have same length, throw error
     stop("x and w must have the same length")
+
   }
 
   # if weights are negative, throw error
-  if (min(w)<0) stop("there are negative weights")
+  if (min(w) < 0) {stop("there are negative weights")}
 
   # if weights are integers, define as numeric
-  if (is.integer(w)) w <- as.numeric(w)
+  if (is.integer(w)) {w <- as.numeric(w)}
 
   # if na.rm = TRUE, remove missing values
   if (na.rm) {

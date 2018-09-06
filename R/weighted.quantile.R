@@ -20,14 +20,20 @@
 #' w <- rchisq(100, 2)
 #' weighted.quantile(x, w, 0.2, TRUE)
 #' @export
+#' @importFrom stats quantile
+#' @importFrom graphics plot
 weighted.quantile <- function(x, w, prob = 0.5, plot = FALSE) {
 
   # if weights are missing, we return simple quantile function
   # otherwise, we remove the weights where the data are missing
   if(missing(w)) {
+
     return(quantile(x, prob, na.rm = TRUE))
+
   } else {
+
     w <- w[!is.na(x)]
+
   }
 
   # remove missing data
@@ -39,7 +45,7 @@ weighted.quantile <- function(x, w, prob = 0.5, plot = FALSE) {
 	x <- x[ord]
 
   # compute weighted cdf
-	w.ord <- cumsum(w)/sum(w)
+	w.ord <- cumsum(w) / sum(w)
 
 	# get index with length of data vector x
 	index <- 1:length(x)
@@ -52,10 +58,14 @@ weighted.quantile <- function(x, w, prob = 0.5, plot = FALSE) {
 	# thus, set index of lower quant to 1 (first observation)
 	# otherwise, take max index where w.ord smaller or equal to prob
 	if(min(w.ord) > prob) {
+
 	  warning('Dominance of one observation!')
 		lower.k.quant <- 1
+
 	} else {
+
 	  lower.k.quant <- max(index[w.ord <= prob])
+
 	}
 
 	# set index of upper quant to min index where w.ord greater than prob
@@ -63,12 +73,16 @@ weighted.quantile <- function(x, w, prob = 0.5, plot = FALSE) {
 
 	# if inverse is non-unique, return weighted linear interpolation
 	if(w.ord[lower.k.quant] < prob) {
+
 	  # returns quantile according to upper.k.quant
 	  return(x[upper.k.quant])
+
 	} else {
+
 	  # returns weighted linear interpolation
 	  return((w[lower.k.quant] * x[lower.k.quant] + w[upper.k.quant] * x[upper.k.quant]) /
 	           (w[lower.k.quant] + w[upper.k.quant]))
+
 	}
 }
 

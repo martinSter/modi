@@ -18,7 +18,7 @@ EAimp(data, weights, outind, reach = "max", transmission.function = "root",
 \item{outind}{a logical vector with component \code{TRUE} for outliers.}
 
 \item{reach}{reach of the threshold function (usually set to the maximum
-distance to a nearest neighbour, see internal function \code{.EA.dist}).}
+distance to a nearest neighbour, see internal function \code{EA.dist}).}
 
 \item{transmission.function}{form of the transmission function of distance d:
 \code{"step"} is a heaviside function which jumps to \code{1} at \code{d0},

@@ -29,7 +29,7 @@
 #' @references Béguin, C. and Hulliger, B. (2008), The BACON-EEM Algorithm
 #' for Multivariate Outlier Detection, in Incomplete Survey Data, Survey
 #' Methodology, Vol. 34, No. 1, pp. 91-103.
-#' @seealso \code{\link[MASS]{cov.mcd}}
+#' @seealso \code{\link[MASS]{cov.rob}}
 #' @examples
 #' data(bushfirem)
 #' det.res <- GIMCD(bushfirem, alpha = 0.1)

@@ -193,7 +193,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 	}
 
 	# calculation of distances
-	EA.dist.res <- .EA.dist(data, n = n, p = p, weights = weights, reach = reach,
+	EA.dist.res <- EA.dist(data, n = n, p = p, weights = weights, reach = reach,
 	                        transmission.function = transmission.function,
 	                        power = power, distance.type = distance.type,
 	                        maxl = maxl)
@@ -274,7 +274,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 		  hprod[!infected] <-
 		    hprod[!infected] * apply(sweep(
 		      sweep(matrix(EA.dist.res$counterprobs[apply(
-		        as.matrix(which(!infected)), 1, .ind.dijs,
+		        as.matrix(which(!infected)), 1, ind.dijs,
 		        js = which(new.infected), n = n)], sum(new.infected),
 		        n - n.infected), 1, weights[new.infected], "^"), 2,
 		      weights[!infected], "^"), 2, prod)
@@ -285,7 +285,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 
 			  hprod[!infected] <-
 			    hprod[!infected] * EA.dist.res$counterprobs[apply(
-			      as.matrix(which(!infected)), 1, .ind.dijs,
+			      as.matrix(which(!infected)), 1, ind.dijs,
 			      js = which(new.infected), n = n)] ^ (weights[new.infected] *
 			                                             weights[!infected])
 

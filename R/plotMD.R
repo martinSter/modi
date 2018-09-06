@@ -22,6 +22,8 @@
 #' det.res <- TRC(bushfirem, weights = bushfire.weights)
 #' PlotMD(det.res$dist, ncol(bushfirem))
 #' @export
+#' @importFrom stats qf qchisq median
+#' @importFrom graphics plot abline title
 PlotMD <- function(dist, p, alpha = 0.95, chisquare = FALSE) {
 
   # QQ-Plot of (squared) Mahalanobis Distance

@@ -52,7 +52,7 @@ for Multivariate Outlier Detection, in Incomplete Survey Data, Survey
 Methodology, Vol. 34, No. 1, pp. 91-103.
 }
 \seealso{
-\code{\link[MASS]{cov.mcd}}
+\code{\link[MASS]{cov.rob}}
 }
 \author{
 Beat Hulliger

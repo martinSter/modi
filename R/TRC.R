@@ -153,9 +153,9 @@ TRC <- function(data, weights, overlap = 3, mincor = 0,
 		for (i in 1:p) {
 
 			weighted.ranks[ ,i] <-
-			  (apply(data[ , i, drop = FALSE], 1, .sum.weights,
+			  (apply(data[ , i, drop = FALSE], 1, weightsum,
 			         weights = weights, observations = data[ ,i]) +
-			     0.5 * apply(data[ , i, drop = FALSE], 1, .sum.weights,
+			     0.5 * apply(data[ , i, drop = FALSE], 1, weightsum,
 			                 weights = weights, observations = data[ ,i], lt = FALSE) +
 			     0.5)
 		}
@@ -221,19 +221,19 @@ TRC <- function(data, weights, overlap = 3, mincor = 0,
 					common.observations <- missing.matrix[ ,i] & missing.matrix[ ,j]
 
 					weighted.ranks.i <- (apply(data[common.observations, i, drop = FALSE], 1,
-					                           .sum.weights, weights = weights[common.observations],
+					                           weightsum, weights = weights[common.observations],
 					                           observations = data[common.observations,i]) +
 					                       0.5 * apply(data[common.observations, i, drop = FALSE], 1,
-					                                   .sum.weights,
+					                                   weightsum,
 					                                   weights = weights[common.observations],
 					                                   observations = data[common.observations,i],
 					                                   lt = FALSE) + 0.5)
 
 					weighted.ranks.j <- (apply(data[common.observations, j, drop = FALSE], 1,
-					                           .sum.weights, weights = weights[common.observations],
+					                           weightsum, weights = weights[common.observations],
 					                           observations = data[common.observations,j]) +
 					                       0.5 * apply(data[common.observations, j, drop = FALSE], 1,
-					                                   .sum.weights,
+					                                   weightsum,
 					                                   weights = weights[common.observations],
 					                                   observations = data[common.observations,j],
 					                                   lt = FALSE) + 0.5)
