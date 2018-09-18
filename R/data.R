@@ -8,10 +8,8 @@
 #' cluster of observations 7 to 11 and a few more isolated outliers, namely observations
 #' 12, 13, 31 and 32.
 #'
-#' \code{bushfirem} is created from bushfire by setting a proportion of 0.2 of the values
-#' to missing.
-#'
-#' For testing purposes weights are provided: \code{bushfire.weights <- rep(c(1,2,5), length = nrow(bushfire))}
+#' For testing purposes weights are provided:
+#' \code{bushfire.weights <- rep(c(1,2,5), length = nrow(bushfire))}
 #'
 #' @format A data frame with 38 rows and 5 variables.
 #' @references Campbell, N. (1989) Bushfire Mapping using NOAA AVHRR Data. Technical Report.
@@ -19,6 +17,45 @@
 #' @examples
 #' data(bushfire)
 "bushfire"
+
+#' Bushfire scars with missing data.
+#'
+#' The bushfire data set was used by Campbell (1984, 1989) to locate bushfire scars.
+#' The dataset contains satelite measurements on five frequency bands, corresponding
+#' to each of 38 pixels. However, this dataset contains missing values.
+#'
+#' The data contains an outlying cluster of observations 33 to 38 a second outlier
+#' cluster of observations 7 to 11 and a few more isolated outliers, namely observations
+#' 12, 13, 31 and 32.
+#'
+#' \code{bushfirem} is created from bushfire by setting a proportion of 0.2 of the values
+#' to missing.
+#'
+#' For testing purposes weights are provided:
+#' \code{bushfire.weights <- rep(c(1,2,5), length = nrow(bushfire))}
+#'
+#' @format A data frame with 38 rows and 5 variables.
+#' @references Campbell, N. (1989) Bushfire Mapping using NOAA AVHRR Data. Technical Report.
+#' Commonwealth Scientific and Industrial Research Organisation, North Ryde.
+#' @examples
+#' data(bushfirem)
+"bushfirem"
+
+#' Weights for Bushfire scars.
+#'
+#' The bushfire data set was used by Campbell (1984, 1989) to locate bushfire scars.
+#' The dataset contains satelite measurements on five frequency bands, corresponding
+#' to each of 38 pixels.
+#'
+#' For testing purposes, \code{bushfire.weights} provides artificial weights created
+#' according to: \code{bushfire.weights <- rep(c(1,2,5), length = nrow(bushfire))}
+#'
+#' @format A vector of length 38.
+#' @references Campbell, N. (1989) Bushfire Mapping using NOAA AVHRR Data. Technical Report.
+#' Commonwealth Scientific and Industrial Research Organisation, North Ryde.
+#' @examples
+#' data(bushfire.weights)
+"bushfire.weights"
 
 #' Sample Environment Protection Expenditure Survey.
 #'
