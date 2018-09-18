@@ -22,6 +22,7 @@
 #' @keywords internal
 #' @author Beat Hulliger
 #' @export
+#' @importFrom stats dist
 EA.dist <- function(data, n, p, weights, reach,
                     transmission.function, power,
                     distance.type, maxl) {
