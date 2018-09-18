@@ -38,7 +38,7 @@ in incomplete survey data: The epidemic algorithm and transformed rank correlati
 Journal of the Royal Statistical Society, A167 (Part 2.), pp. 275-294.
 }
 \seealso{
-\link[package_name]{stats}{mahalanobis}
+\link[stats]{mahalanobis}
 }
 \author{
 Beat Hulliger
