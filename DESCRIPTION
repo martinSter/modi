@@ -1,7 +1,7 @@
 Package: modi
 Type: Package
 Title: Multivariate outlier detection and imputation for incomplete survey data
-Version: 1.6.1
+Version: 0.0.0.9000
 Authors@R: as.person(c(
     "Beat Hulliger <beat.hulliger@fhnw.ch> [aut]", 
     "Martin Sterchi <martin.sterchi@fhnw.ch> [cre]"
