@@ -58,7 +58,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-This vignette is largely based on [@bill2016].
+
+A first version of this vignette has been published in the Austrian Journal of Statistics [@bill2016].
 
 ## Introduction
 
