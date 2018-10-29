@@ -1,0 +1,61 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# modi
+
+The package **modi** provides several functions for multivariate outlier detection and imputation. They may be used when analysing multivariate quantitative survey data. The distribution of such data is often not multivariate normal. Futhermore, the data is often skewed and exhibits features of a semi-continuous distribution. Finally, missing values and non-response is common. The functions provided in **modi** address those problems.
+
+## Overview
+
+The following outlier detection and imputation functions are provided in **modi**:
+
+* `BEM()` is an implementation of the BACON-EEM algorithm to detect outliers under the assumption of a multivariate normal distribution.
+* `TRC()` is an implementation of the transformed rank correlation (TRC) algorithm to detect outliers.
+* `EAdet()` is an outlier detection method based on the epidemic algorithm (EA).
+* `EAimp()` is an imputation method based on the epidemic algorithm (EA).
+* `GIMCD()` is an outlier detection method based on non-robust Gaussian imputation (GI) and the highly robust minimum covariance determinant (MCD) algorithm.
+* `POEM()` is a nearest neighbor imputation method for outliers and missing values.
+* `winsimp()` is an imputation method for outliers and missing values based on winsorization and Gaussian imputation.
+* `ER()` is a robust multivariate outlier detection algorithm that can cope with missing values.
+
+## Installation
+
+You can install modi from github by runing the following line of code in R:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("martinSter/modi")
+```
+
+## Example
+
+The following simple example shows how the BACON-EEM algorithm can be applied to detect outliers in the Bushfire dataset:
+
+```{r example}
+# Bushfire data set with 20% of observations missing completely at random (MCAR)
+
+library(modi)
+
+# load the data containing missing values and the corresponding weights
+data(bushfirem, bushfire.weights)
+
+# run BEM algorithm to detect multivariate outliers
+bem.res <- BEM(bushfirem, bushfire.weights, alpha = (1 - 0.01 / nrow(bushfirem)))
+
+# show the outliers as detected by BEM
+bushfirem[bem.res$outind, ]
+
+# show mean per column as computed in BEM
+print(bem.res$output$center)
+```
