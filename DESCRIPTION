@@ -2,15 +2,14 @@ Package: modi
 Type: Package
 Title: Multivariate Outlier Detection and Imputation for Incomplete Survey Data
 Version: 0.1.0
-Authors@R: as.person(c(
-    "Beat Hulliger <beat.hulliger@fhnw.ch> [aut]", 
-    "Martin Sterchi <martin.sterchi@fhnw.ch> [cre]"
-  ))
+Authors@R: c(
+    person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = "aut"),
+    person("Martin", "Sterchi", email = "martin.sterchi@fhnw.ch", role = "cre"))
 Description: Algorithms for multivariate outlier detection when missing values occur.
     Algorithms are based on Mahalanobis distance or data depth. Imputation is based
     on the multivariate normal model or uses nearest neighbour donors. The algorithms 
-    take sample designs, in particular weighting, into account Bill and Hulliger 
-    (2016) <doi:10.17713/ajs.v45i1.86>.
+    take sample designs, in particular weighting, into account. The methods are 
+    described in Bill and Hulliger (2016) <doi:10.17713/ajs.v45i1.86>.
 License: MIT + file LICENSE
 URL: https://github.com/martinSter/modi
 BugReports: https://github.com/martinSter/modi/issues
