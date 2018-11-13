@@ -1,5 +1,8 @@
-## First submission
-This is our first submission to CRAN.
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Fixed the bug in Authors@R in the DESCRIPTION.
+* Added a reference about the method to the Description field.
 
 ## Test environments
 * Windows 10 (local), R 3.5.1
