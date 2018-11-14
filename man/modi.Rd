@@ -23,7 +23,7 @@ imputation with MCD in \code{GIMCD()}.
 }
 
 \references{
-Béguin, C., and Hulliger, B. (2004). Multivariate oulier detection in incomplete
+Béguin, C., and Hulliger, B. (2004). Multivariate outlier detection in incomplete
 survey data: The epidemic algorithm and transformed rank correlations. Journal of
 the Royal Statistical Society, A167 (Part 2.), pp. 275-294.
 

@@ -1,6 +1,6 @@
 #' Winsorization followed by imputation
 #'
-#' Winsorisation of outliers according to the Mahalanobis distance
+#' Winsorization of outliers according to the Mahalanobis distance
 #' followed by an imputation under the multivariate normal model.
 #' Only the outliers are winsorized. The Mahalanobis distance MDmiss
 #' allows for missing values.

@@ -55,7 +55,7 @@ sub-list with the following components:
   \item{\code{new.center}}{Coordinate means after weighting, after imputation}
   \item{\code{new.variances}}{Coordinate variances after weighting, after imputation}
   \item{\code{covariance}}{Covariance (of standardised observations) before imputation}
-  \item{\code{imputed.observations}}{Indices of observations with imputated values}
+  \item{\code{imputed.observations}}{Indices of observations with imputed values}
   \item{\code{donors}}{Indices of donors for imputed observations}
   \item{\code{new.outind}}{Indices of new outliers}
 }
@@ -80,7 +80,7 @@ imputation assumes that the problematic values of an observation (with errors,
 outliers or missing) can be replaced by the mean of the rest of the non-problematic
 observations. Note that the algorithm imputes these problematic observations
 afterwards and therefore the final covariance matrix with imputed data is not
-the same as the working covariance matrix (which may be based on prelminary mean
+the same as the working covariance matrix (which may be based on preliminary mean
 imputation).
 }
 \examples{

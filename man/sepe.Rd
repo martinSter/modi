@@ -13,12 +13,12 @@
   \item{totinvwm}{total investment for waste management}
   \item{totinvap}{total investment for air protection}
   \item{totinvnp}{total investment for noise protection}
-  \item{totinvot}{total investement for other environmental protection}
+  \item{totinvot}{total investment for other environmental protection}
   \item{totinvto}{overall total investment in all environmental protection areas}
-  \item{totexpwp}{total current expenditure in environmental protectiona area water protection}
-  \item{totexpwm}{total current expenditure in environmental protectiona area waste management}
-  \item{totexpap}{total current expenditure in environmental protectiona area air protection}
-  \item{totexpnp}{total current expenditure in environmental protectiona area noise protection}
+  \item{totexpwp}{total current expenditure in environmental protection area water protection}
+  \item{totexpwm}{total current expenditure in environmental protection area waste management}
+  \item{totexpap}{total current expenditure in environmental protection area air protection}
+  \item{totexpnp}{total current expenditure in environmental protection area noise protection}
   \item{totexpot}{total current expenditure in other environmental protection}
   \item{totexpto}{overall total current expenditure in all environmental protection}
   \item{subtot}{total subsidies for environmental protection received}

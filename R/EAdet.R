@@ -8,7 +8,7 @@
 #' The form and parameters of the transmission function should be chosen such that the
 #' infection times have at least a range of 10. The default cutting point to decide on
 #' outliers is the median infection time plus three times the mad of infection times.
-#' A better cutpoint may be chosen by visual insprection of the cdf of infection times.
+#' A better cutpoint may be chosen by visual inspection of the cdf of infection times.
 #' \code{EAdet} calls the function \code{EA.dist}, which passes the counterprobabilities
 #' of infection (a \eqn{n * (n - 1) / 2} size vector!) and three parameters (sample
 #' spatial median index, maximal distance to nearest neighbor and transmission distance =
@@ -72,7 +72,7 @@
 #'   \item{\code{outliers}}{Indices of outliers}
 #'   \item{\code{duration}}{Duration of epidemic}
 #'   \item{\code{computation.time}}{Elapsed computation time}
-#'   \item{\code{initialisation.computation.time}}{Elabsed computation time for
+#'   \item{\code{initialisation.computation.time}}{Elapsed computation time for
 #'   standardisation and calculation of distance matrix}
 #' }
 #' The further components returned by \code{EAdet} are:

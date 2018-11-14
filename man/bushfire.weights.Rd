@@ -10,7 +10,7 @@ bushfire.weights
 }
 \description{
 The bushfire data set was used by Campbell (1984, 1989) to locate bushfire scars.
-The dataset contains satelite measurements on five frequency bands, corresponding
+The dataset contains satellite measurements on five frequency bands, corresponding
 to each of 38 pixels.
 }
 \details{
