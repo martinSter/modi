@@ -71,5 +71,5 @@ PlotMD <- function(dist, p, alpha = 0.95, chisquare = FALSE) {
                     " n.miss.dist = ", sum(is.na(dist))))
 
   # return two cutpoints
-  return(list(hmed = hmed, halpha = halpha))
+  return(structure(list(hmed = hmed, halpha = halpha), class = "PlotMD.r"))
 }

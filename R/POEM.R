@@ -324,7 +324,7 @@ POEM <- function(data, weights, outind, errors, missing.matrix, alpha = 0.5,
   calc.time <- proc.time() - calc.time
 
 	# prepare output
-  POEM.r <- list(
+  res <- list(
     preliminary.mean.imputation = preliminary.mean.imputation,
     completely.missing = sum(comp.miss),
     good.values = good.values,
@@ -339,13 +339,14 @@ POEM <- function(data, weights, outind, errors, missing.matrix, alpha = 0.5,
     covariance = covariance,
 		imputed.observations = to.be.imputed,
 		donors = imputed[to.be.imputed],
-		outind = outind)
+		outind = outind,
+		imputed.data = new.data)
 
-	# return output
-	return(invisible(list(output = POEM.r, imputed.data = new.data)))
+  # output to console
+  message(paste0("POEM has imputed ", length(to.be.imputed),
+      " observations(s) in ", round(calc.time[1], 2), " seconds.", "\n"))
 
-	# output to console
-	cat("\n", "POEM has imputed", length(to.be.imputed),
-	    "observations(s) in", calc.time, "seconds.", "\n", "\n")
+	class(res) <- "POEM.r"
+	res
 }
 

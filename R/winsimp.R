@@ -92,12 +92,13 @@ Winsimp <- function(data, center, scatter, outind, seed = 1000003) {
 	calc.time <- proc.time() - calc.time
 
 	# prepare output
-  Winsimp.r <- list(cutpoint = cutpoint,
-                    proc.time = calc.time,
-                    n.missing.before = sum(is.na(data)),
-                    n.missing.after = sum(is.na(data.imp)))
+  res <- list(cutpoint = cutpoint,
+              proc.time = calc.time,
+              n.missing.before = sum(is.na(data)),
+              n.missing.after = sum(is.na(data.imp)),
+              imputed.data = data.imp)
 
-  # return invisible output (not printed)
-  return(invisible(list(output = Winsimp.r, imputed.data = data.imp)))
+  class(res) <- "Winsimp.r"
+  res
 }
 

@@ -4,8 +4,8 @@
 \alias{EA.dist}
 \title{Utility function for EAdet and EAimp}
 \usage{
-EA.dist(data, n, p, weights, reach, transmission.function, power, distance.type,
-  maxl)
+EA.dist(data, n, p, weights, reach, transmission.function, power,
+  distance.type, maxl)
 }
 \arguments{
 \item{data}{a data frame or matrix with data.}

@@ -420,29 +420,43 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 
   # ------- results -------
 
-  # prepare output
-	EAdet.r <- list(
-	  sample.size = n, discarded.observations = discarded,
-	  missing.observations = missobs, number.of.variables = p,
-	  n.complete.records = sum(complete.records),
-	  n.usable.records = sum(usable.records), medians = medians,
-	  mads = mads, prob.quantile = prob.quantile,
-	  quantile.deviations = qads, start = start.point,
-	  transmission.function = transmission.function, power = power,
-	  maxl = maxl, max.min.di = EA.dist.res$output[2],
-	  transmission.distance = EA.dist.res$output[3], threshold = threshold,
-	  distance.type = distance.type, deterministic = deterministic,
-	  number.infected = n.infected, cutpoint = cutpoint,
-	  number.outliers = sum(outlier), outliers = outlier.ind,
-	  duration = duration, computation.time = calc.time,
-	  initialisation.computation.time = comp.time.init)
-
   # output to console
-	cat("\n", "EA detection has finished with", n.infected, "infected points in",
-	    calc.time[1], "seconds.")
+  message(paste0("EA detection has finished with ", n.infected,
+                 " infected points in ", round(calc.time[1], 2), " seconds."))
 
   # return output
-  return(invisible(list(output = EAdet.r, infected = infectednfull,
-                        infection.time = inf.time, outind = outlier)))
+	return(
+	  structure(
+	    list(
+	      sample.size = n,
+	      discarded.observations = discarded,
+	      missing.observations = missobs,
+	      number.of.variables = p,
+	      n.complete.records = sum(complete.records),
+	      n.usable.records = sum(usable.records),
+	      medians = medians,
+	      mads = mads,
+	      prob.quantile = prob.quantile,
+	      quantile.deviations = qads,
+	      start = start.point,
+	      transmission.function = transmission.function,
+	      power = power,
+	      maxl = maxl,
+	      max.min.di = EA.dist.res$output[2],
+	      transmission.distance = EA.dist.res$output[3],
+	      threshold = threshold,
+	      distance.type = distance.type,
+	      deterministic = deterministic,
+	      number.infected = n.infected,
+	      cutpoint = cutpoint,
+	      number.outliers = sum(outlier),
+	      outliers = outlier.ind,
+	      duration = duration,
+	      computation.time = calc.time,
+	      initialisation.computation.time = comp.time.init,
+	      infected = infectednfull,
+	      infection.time = inf.time,
+	      outind = outlier), class = "EAdet.r"))
+
 }
 

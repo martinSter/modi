@@ -744,28 +744,27 @@ BEM <- function(data, weights, v = 2, c0 = 3, alpha = 0.01, md.type = "m",
 
   # ------- results -------
 
-  # prepare output
-  BEM.r <- list(
-    sample.size = n,
-    discarded.observations = discarded,
-    number.of.variables = p,
-    significance.level = alpha,
-    initial.basic.subset.size = initial.length,
-    final.basic.subset.size = length(good),
-    number.of.iterations = count,
-    computation.time = calc.time,
-    center = EM.mean.good,
-    scatter = EM.var.good,
-    cutpoint = cutpoint)
+  # output to console
+  message(paste0("BEM has detected ", length(outliers), " outlier(s) in ",
+                 round(calc.time[1], 2), " seconds.", "\n"))
 
-  BEM.i <- list(outind = outnfull, dist = distnfull)
+  # return output
+  return(
+    structure(
+      list(
+        sample.size = n,
+        discarded.observations = discarded,
+        number.of.variables = p,
+        significance.level = alpha,
+        initial.basic.subset.size = initial.length,
+        final.basic.subset.size = length(good),
+        number.of.iterations = count,
+        computation.time = calc.time,
+        center = EM.mean.good,
+        scatter = EM.var.good,
+        cutpoint = cutpoint,
+        outind = outnfull,
+        dist = distnfull), class = "BEM.r"))
 
-	# output to console
-	cat("\n", "BEM has detected", length(outliers),
-	    "outlier(s) in", calc.time[1], "seconds.", "\n", "\n")
-
-	# return output
-	return(invisible(list(output = BEM.r, outind = outnfull,
-	                      dist = distnfull)))
 }
 

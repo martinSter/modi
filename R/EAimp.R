@@ -310,21 +310,27 @@ EAimp <- function(data, weights, outind, reach = "max",
   calc.time <- round(proc.time()[1] - calc.time, 5)
 
   # output to console the remaining number of missing values
-  cat("\n\n Number of remaining missing values is ", sum(is.na(imp.data)))
+  cat("\n\n Number of remaining missing values is ", sum(is.na(imp.data)), "\n")
 
   # ------- results -------
 
-  # prepare output
-	EAimp.r <- list(sample.size = n, number.of.variables = p,
-	                n.complete.records = sum(complete.records),
-	                n.usable.records = sum(usable.records),
-	                duration = duration, reach = d0, threshold = threshold,
-	                deterministic = deterministic, computation.time = calc.time)
+  # output to console
+  message(paste0("EA imputation has finished in ", round(calc.time, 2), " seconds.", "\n"))
 
   # return output
-  return(invisible(list(output = EAimp.r, imputed.data = imp.data)))
+	return(
+	  structure(
+	    list(
+	      sample.size = n,
+	      number.of.variables = p,
+	      n.complete.records = sum(complete.records),
+	      n.usable.records = sum(usable.records),
+	      duration = duration,
+	      reach = d0,
+	      threshold = threshold,
+	      deterministic = deterministic,
+	      computation.time = calc.time,
+	      imputed.data = imp.data), class = "EAimp.r"))
 
-  # output to console
-	cat("\n", "EA imputation has finished in", calc.time, "seconds.", "\n")
 }
 

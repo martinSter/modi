@@ -502,7 +502,7 @@ TRC <- function(data, weights, overlap = 3, mincor = 0,
 	calc.time <- proc.time() - calc.time
 
 	# prepare output
-	TRC.r <- list(
+	res <- list(
 	  sample.size = n,
 	  number.of.variables = p,
 	  number.of.missing.items = nb.missing.items,
@@ -514,13 +514,16 @@ TRC <- function(data, weights, overlap = 3, mincor = 0,
 	  scatter = scatter,
 	  robust.regression = robust.regression,
 	  md.type = md.type,
-	  cutpoint = cutpoint)
+	  cutpoint = cutpoint,
+	  outind = outnfull,
+	  dist = distnfull
+	  )
 
 	# output to console
-	cat("\n", "TRC has detected", length(outliers), "outlier(s) in",
-	    calc.time[1], "seconds.\n\n")
+	message(paste0("\n", "TRC has detected ", length(outliers), " outlier(s) in ",
+	        round(calc.time[1], 2), " seconds.\n"))
 
-	# return output
-	return(invisible(list(output = TRC.r, outind = outnfull, dist = distnfull)))
+	class(res) <- "TRC.r"
+	res
 }
 

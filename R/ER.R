@@ -160,20 +160,24 @@ ER <- function(data, weights, alpha = 0.01, psi.par = c(2, 1.25), em.steps = 100
   outliers <- perm[!good]
 
   # output to console
-  cat("\n", "ER has detected", sum(!good), "outlier(s) in", calc.time[3], "seconds.", "\n", "\n")
-  if (!ER.result$convergence) {cat("\n", "ER did not converge.", "\n")}
+  message(paste0("ER has detected ", sum(!good), " outlier(s) in ",
+                 round(calc.time[1], 2), " seconds.", "\n"))
+
+  if (!ER.result$convergence) warning("ER did not converge.")
 
   # return output
-  return(list(
-    sample.size = n,
-    number.of.variables = p,
-    significance.level = alpha,
-    computation.time = calc.time,
-    good.data = perm[good],
-    outliers = outliers,
-    center = ER.mean,
-    scatter = ER.var,
-    dist = dist[order(perm)],
-    rob.weights = ER.result$rob.weights))
+  return(
+    structure(
+      list(
+        sample.size = n,
+        number.of.variables = p,
+        significance.level = alpha,
+        computation.time = calc.time,
+        good.data = perm[good],
+        outliers = outliers,
+        center = ER.mean,
+        scatter = ER.var,
+        dist = dist[order(perm)],
+        rob.weights = ER.result$rob.weights), class = "ER.r"))
 }
 

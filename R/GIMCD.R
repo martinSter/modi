@@ -87,15 +87,18 @@ GIMCD <- function(data, alpha = 0.05, seedem = 23456789, seedmcd) {
   calc.time <- proc.time() - calc.time
 
   # output to console
-  cat("GIMCD has detected", sum(outind), "outliers in", calc.time[1], "seconds.")
+  message(paste0("GIMCD has detected ", sum(outind), " outliers in ",
+                 round(calc.time[1], 2), " seconds."))
 
   # return output
-  return(list(
-    center = MCD.cov$center,
-    scatter = MCD.cov$cov,
-    alpha = 1 - alpha,
-    computation.time = calc.time[1],
-    cutpoint = cutpoint,
-    outind = outind,
-    dist = dist))
+  return(
+    structure(
+      list(
+        center = MCD.cov$center,
+        scatter = MCD.cov$cov,
+        alpha = 1 - alpha,
+        computation.time = calc.time[1],
+        cutpoint = cutpoint,
+        outind = outind,
+        dist = dist), class = "GIMCD.r"))
 }
