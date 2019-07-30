@@ -208,8 +208,8 @@ After outliers have been detected, we can impute values. Here, we do this with `
 ```{r, eval = TRUE}
 # apply Winsimp()
 res.winsimp <- Winsimp(sepe_transformed, 
-                       res.bem$output$center, 
-                       res.bem$output$scatter, 
+                       res.bem$center, 
+                       res.bem$scatter, 
                        outind)
 ```
 
@@ -265,7 +265,7 @@ Reducing `gamma` results in a better provisional imputation. However, the number
 
 ```{r, eval = TRUE}
 # run the TRC() algorithm
-res.trc <- TRC(sepe_transformed, sepe$weight, gamma = 30 / res.trc$output$sample.size)
+res.trc <- TRC(sepe_transformed, sepe$weight, gamma = 30 / res.trc$sample.size)
 ```
 
 The cutpoint chosen by `TRC()` is at 54.67. However, visual inspection of the QQ-plot below indicates that the cutpoint should be chosen at about 210.
@@ -369,7 +369,7 @@ We use `EAimp()` to impute values. Since the zeros were not set to missing, re-i
 ```{r, eval = TRUE}
 # determine outliers based on new cutpoint
 res.eaimp <- EAimp(df, sepe$weight, outind = res.eadet$outind, 
-                   duration = res.eadet$output$duration)
+                   duration = res.eadet$duration)
 ```
 
 ## Conclusion
@@ -379,5 +379,9 @@ Multivariate outlier detection starts before running any outlier detection algor
 Although the algorithms in the package **modi** have a high power of detecting multivariate outliers, user-intervention to choose the cutpoint is necessary as has been shown in the examples above. Moreover, it is important to check the results of the imputation. For example, we sometimes need to restrict imputed data to positive values.
 
 Choosing an appropriate outlier detection method is difficult since all presented methods have advantages and disadvantages. The distribution of the `sepe` dataset is far from multivariate normal. Nevertheless, methods with an underlying assumption of multivariate normality may return satisfactory results if the distribution is uni-modal apart from the zero-inflation which must be treated before applying the outlier detection.
+
+## Acknowledgement
+
+The implementation of the package **modi** was supported by the Hasler Foundation.
 
 ## References

@@ -47,7 +47,7 @@ bem.res <- BEM(bushfirem, bushfire.weights, alpha = (1 - 0.01 / nrow(bushfirem))
 #> alpha should be less than 0.5:
 #>         alpha set to 1 - alpha
 #>  0.9997368
-#>  BEM has detected 15 outlier(s) in 0.06 seconds. 
+#>  BEM has detected 15 outlier(s) in 0.07 seconds. 
 #> 
 
 # show the outliers as detected by BEM
