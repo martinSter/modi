@@ -1,38 +1,54 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-modi
-====
 
-The package **modi** provides several functions for multivariate outlier detection and imputation. They may be used when analysing multivariate quantitative survey data. The distribution of such data is often not multivariate normal. Futhermore, the data is often skewed and exhibits features of a semi-continuous distribution. Finally, missing values and non-response is common. The functions provided in **modi** address those problems.
+# modi
 
-Overview
---------
+The package **modi** provides several functions for multivariate outlier
+detection and imputation. They may be used when analysing multivariate
+quantitative survey data. The distribution of such data is often not
+multivariate normal. Futhermore, the data is often skewed and exhibits
+features of a semi-continuous distribution. Finally, missing values and
+non-response is common. The functions provided in **modi** address those
+problems.
 
-The following outlier detection and imputation functions are provided in **modi**:
+## Overview
 
--   `BEM()` is an implementation of the BACON-EEM algorithm to detect outliers under the assumption of a multivariate normal distribution.
--   `TRC()` is an implementation of the transformed rank correlation (TRC) algorithm to detect outliers.
--   `EAdet()` is an outlier detection method based on the epidemic algorithm (EA).
--   `EAimp()` is an imputation method based on the epidemic algorithm (EA).
--   `GIMCD()` is an outlier detection method based on non-robust Gaussian imputation (GI) and the highly robust minimum covariance determinant (MCD) algorithm.
--   `POEM()` is a nearest neighbor imputation method for outliers and missing values.
--   `winsimp()` is an imputation method for outliers and missing values based on winsorization and Gaussian imputation.
--   `ER()` is a robust multivariate outlier detection algorithm that can cope with missing values.
+The following outlier detection and imputation functions are provided in
+**modi**:
 
-Installation
-------------
+  - `BEM()` is an implementation of the BACON-EEM algorithm to detect
+    outliers under the assumption of a multivariate normal distribution.
+  - `TRC()` is an implementation of the transformed rank correlation
+    (TRC) algorithm to detect outliers.
+  - `EAdet()` is an outlier detection method based on the epidemic
+    algorithm (EA).
+  - `EAimp()` is an imputation method based on the epidemic algorithm
+    (EA).
+  - `GIMCD()` is an outlier detection method based on non-robust
+    Gaussian imputation (GI) and the highly robust minimum covariance
+    determinant (MCD) algorithm.
+  - `POEM()` is a nearest neighbor imputation method for outliers and
+    missing values.
+  - `winsimp()` is an imputation method for outliers and missing values
+    based on winsorization and Gaussian imputation.
+  - `ER()` is a robust multivariate outlier detection algorithm that can
+    cope with missing values.
 
-You can install modi from github by runing the following line of code in R:
+## Installation
+
+You can install modi from github by runing the following line of code in
+R:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("martinSter/modi")
 ```
 
-Example
--------
+## Example
 
-The following simple example shows how the BACON-EEM algorithm can be applied to detect outliers in the Bushfire dataset:
+The following simple example shows how the BACON-EEM algorithm can be
+applied to detect outliers in the Bushfire
+dataset:
 
 ``` r
 # Bushfire data set with 20% of observations missing completely at random (MCAR)
@@ -47,8 +63,7 @@ bem.res <- BEM(bushfirem, bushfire.weights, alpha = (1 - 0.01 / nrow(bushfirem))
 #> alpha should be less than 0.5:
 #>         alpha set to 1 - alpha
 #>  0.9997368
-#>  BEM has detected 15 outlier(s) in 0.07 seconds. 
-#> 
+#> BEM has detected 15 outlier(s) in 0.11 seconds.
 
 # show the outliers as detected by BEM
 bushfirem[bem.res$outind, ]
@@ -71,5 +86,10 @@ bushfirem[bem.res$outind, ]
 
 # show mean per column as computed in BEM
 print(bem.res$output$center)
-#> [1] 109.2987 149.6075 262.0240 215.3746 276.8635
+#> NULL
 ```
+
+## Acknowledgement
+
+The implementation of this R package was supported by the Hasler
+foundation.

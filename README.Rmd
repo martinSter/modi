@@ -59,3 +59,7 @@ bushfirem[bem.res$outind, ]
 # show mean per column as computed in BEM
 print(bem.res$output$center)
 ```
+
+## Acknowledgement
+
+The implementation of this R package was supported by the Hasler foundation.
