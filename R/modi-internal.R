@@ -27,8 +27,8 @@ EA.dist <- function(data, n, p, weights, reach,
                     transmission.function, power,
                     distance.type, maxl) {
 
-  # save distances, i.e. the later counterprobabilities
-	counterprobs <- as.single(dist(data, method = distance.type))
+    # save distances, i.e. the later counterprobabilities
+    counterprobs <- as.single(dist(data, method = distance.type))
 
 	# The dist function handles missing values correctly except
 	# if there is no overlap (see counterprob)
@@ -36,56 +36,56 @@ EA.dist <- function(data, n, p, weights, reach,
 	means.di <- rep(0, n)
 
 	# Will be used for the sample spatial median and for d0
-	for(i in 1:n) {
-	  di <- counterprobs[ind.dijs(i, 1:n, n)]
+	for (i in 1:n) {
+	    di <- counterprobs[ind.dijs(i, 1:n, n)]
 		min.di[i] <- nz.min(di)
 
 		# weighted mean of distances to account for missing distances
 		means.di[i] <- sum(di * weights[-i], na.rm = TRUE) /
-		  sum(weights[-i][!is.na(di)])
+            sum(weights[-i][!is.na(di)])
 	}
 
 	# Sample spatial median
-  # Restrict to usable observations (for sample spatial median)
+    # Restrict to usable observations (for sample spatial median)
 	usable.records <- apply(!is.na(data), 1, sum) >= p / 2
 	means.di.complete <- means.di
 	means.di.complete[!usable.records] <- NA
-	sample.spatial.median.index <-
-	  which(means.di.complete == min(means.di.complete, na.rm = TRUE))[1]
+	sample.spatial.median.index <- which(means.di.complete ==
+        min(means.di.complete, na.rm = TRUE))[1]
 
 	# Determine tuning distance d0
 	max.min.di <- max(min.di, na.rm = TRUE)
-	d0 <- switch(EXPR = as.character(reach), max = min(max.min.di, 2 * sqrt(p)),
-	             quant = min(weighted.quantile(min.di, w = weights, prob = 1 - (p + 1) / n),
-	                         2 * sqrt(p)), reach)
-
-	#	if(reach=="max") {d0 <- min(max.min.di,2*sqrt(p))} else
-  #	{d0 <- min(weighted.quantile(min.di, w = weights, prob = 1-(p+1)/n), 2 * sqrt(p))}
+    d0 <- if (is.numeric(reach)) {
+        reach
+    } else {
+        switch(reach,
+            "max" = min(max.min.di, 2 * sqrt(p)),
+            "quant" = min(weighted.quantile(min.di, w = weights,
+                prob = 1 - (p + 1) / n), 2 * sqrt(p)),
+            stop("argument 'reach' is not defined\n"))
+    }
 
 	# Calculation of counterprobabilities
-  # counterprobabilities stocked in distances vector to save memory
-  # counterprobabilities are set to 1 if missing
+    # counterprobabilities stocked in distances vector to save memory
+    # counterprobabilities are set to 1 if missing
 	if (n%%2 == 0) {
-	  l.batch <- n - 1
-	  n.loops <- n / 2
+	    l.batch <- n - 1
+	    n.loops <- n / 2
 	} else {
-	  l.batch <- n
+	    l.batch <- n
 		n.loops <- (n - 1) / 2
 	}
 
-	if(transmission.function == "step") {
+	if (transmission.function == "step") {
+        for (i in 1:n.loops) {
+	        dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
+	        dij <- as.single(dij > d0)
+	        dij[is.na(dij)] <- 1
+	        counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
+	    }
 
-	  for(i in 1:n.loops) {
-	    dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
-	    dij <- as.single(dij > d0)
-	    dij[is.na(dij)] <- 1
-	    counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
-	  }
-
-	} else {
-
-	  if(transmission.function == "linear") {
-
+    } else {
+        if(transmission.function == "linear") {
 			for(i in 1:n.loops) {
 			  dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
 			  dij <- 1 - pmax(0, d0 - dij) / d0
@@ -93,40 +93,33 @@ EA.dist <- function(data, n, p, weights, reach,
 			  counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
 			}
 
-	  } else {
+	    } else {
+            if (transmission.function == "power") {
+                beta <- as.single((0.01^(-1 / power) - 1) / d0)
 
-			if(transmission.function == "power") {
+                for (i in 1:n.loops) {
+                    dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
+                    dij <- 1 - (beta * dij + 1)^(-power)
+                    dij <- ifelse(dij > d0, 1, dij)
+                    dij[is.na(dij)] <- 1
+                    counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
+                  }
 
-			  beta <- as.single((0.01^(-1 / power) - 1) / d0)
-
-			  for(i in 1:n.loops) {
-			    dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
-			    dij <- 1 - (beta * dij + 1)^(-power)
-			    dij <- ifelse(dij > d0, 1, dij)
-			    dij[is.na(dij)] <- 1
-			    counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
-			  }
-
-			} else { # default transmission function is the root function
-
-				for(i in 1:n.loops) {
-				  dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
-				  dij <- 1 - (1 - dij / d0)^(1 / power)
-				  dij <- ifelse(dij > d0, 1, dij)
-				  dij[is.na(dij)] <- 1
-				  counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
-				}
-
-			}
-
-	  }
-
-	}
+            } else { # default transmission function is the root function
+                for (i in 1:n.loops) {
+                    dij <- counterprobs[(i - 1) * l.batch + (1:l.batch)]
+                    dij <- 1 - (1 - dij / d0)^(1 / power)
+                    dij <- ifelse(dij > d0, 1, dij)
+                    dij[is.na(dij)] <- 1
+                    counterprobs[(i - 1) * l.batch + (1:l.batch)] <- as.single(dij)
+                }
+            }
+        }
+    }
 
 	return(invisible(list(
 	  output = c(sample.spatial.median.index, max.min.di, d0),
 	  min.dist2nn = min.di, counterprobs = counterprobs)))
-
 }
 
 

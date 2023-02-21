@@ -7,5 +7,3 @@
 ^README-.*\.png$
 ^cran-comments\.md$
 ^\.travis\.yml$
-^inst/varia
-
