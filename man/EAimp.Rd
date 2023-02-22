@@ -82,7 +82,7 @@ are infected. Then a donor is selected randomly.
 data(bushfirem, bushfire.weights)
 det.res <- EAdet(bushfirem, bushfire.weights)
 imp.res <- EAimp(bushfirem, bushfire.weights, outind = det.res$outind,
-reach = det.res$output$max.min.di, kdon = 3)
+                 reach = det.res$max.min.di, kdon = 3)
 print(imp.res$output)
 }
 \references{

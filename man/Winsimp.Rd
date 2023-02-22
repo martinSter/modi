@@ -52,7 +52,7 @@ distance of observation i.
 \examples{
 data(bushfirem, bushfire.weights)
 det.res <- TRC(bushfirem, weight = bushfire.weights)
-imp.res <- Winsimp(bushfirem, det.res$output$center, det.res$output$scatter, det.res$outind)
+imp.res <- Winsimp(bushfirem, det.res$center, det.res$scatter, det.res$outind)
 print(imp.res$output)
 }
 \references{

@@ -5,17 +5,18 @@ Version: 0.1.0.9000
 Authors@R: c(
     person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = "aut"),
     person("Martin", "Sterchi", email = "martin.sterchi@fhnw.ch", role = "cre"))
-Description: Algorithms for multivariate outlier detection when missing values occur.
-    Algorithms are based on Mahalanobis distance or data depth. Imputation is based
-    on the multivariate normal model or uses nearest neighbour donors. The algorithms 
-    take sample designs, in particular weighting, into account. The methods are 
-    described in Bill and Hulliger (2016) <doi:10.17713/ajs.v45i1.86>.
+Description: Algorithms for multivariate outlier detection when missing values
+    occur. Algorithms are based on Mahalanobis distance or data depth.
+    Imputation is based on the multivariate normal model or uses nearest
+    neighbour donors. The algorithms take sample designs, in particular
+    weighting, into account. The methods are described in Bill and Hulliger
+    (2016) <doi:10.17713/ajs.v45i1.86>.
 License: MIT + file LICENSE
 URL: https://github.com/martinSter/modi
 BugReports: https://github.com/martinSter/modi/issues
 Encoding: UTF-8
 LazyData: true
-Depends: 
+Depends:
     R (>= 3.5.0)
 Imports:
     MASS (>= 7.3-50),
@@ -27,5 +28,6 @@ RoxygenNote: 6.1.1
 Suggests:
     knitr,
     rmarkdown,
+    survey,
     testthat
 VignetteBuilder: knitr
