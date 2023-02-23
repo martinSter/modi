@@ -1,7 +1,7 @@
 Package: modi
 Type: Package
 Title: Multivariate Outlier Detection and Imputation for Incomplete Survey Data
-Version: 0.1.0.9000
+Version: 0.1.1.9000
 Authors@R: c(
     person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = "aut"),
     person("Martin", "Sterchi", email = "martin.sterchi@fhnw.ch", role = "cre"))
@@ -24,7 +24,7 @@ Imports:
     stats,
     graphics,
     utils
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.3
 Suggests:
     knitr,
     rmarkdown,
