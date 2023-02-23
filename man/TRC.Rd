@@ -4,9 +4,18 @@
 \alias{TRC}
 \title{Transformed rank correlations for multivariate outlier detection}
 \usage{
-TRC(data, weights, overlap = 3, mincor = 0,
-  robust.regression = "rank", gamma = 0.5, prob.quantile = 0.75,
-  alpha = 0.05, md.type = "m", monitor = FALSE)
+TRC(
+  data,
+  weights,
+  overlap = 3,
+  mincor = 0,
+  robust.regression = "rank",
+  gamma = 0.5,
+  prob.quantile = 0.75,
+  alpha = 0.05,
+  md.type = "m",
+  monitor = FALSE
+)
 }
 \arguments{
 \item{data}{a data frame or matrix with the data.}

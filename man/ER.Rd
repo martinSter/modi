@@ -4,8 +4,16 @@
 \alias{ER}
 \title{Robust EM-algorithm ER}
 \usage{
-ER(data, weights, alpha = 0.01, psi.par = c(2, 1.25), em.steps = 100,
-  steps.output = FALSE, Estep.output = FALSE, tolerance = 1e-06)
+ER(
+  data,
+  weights,
+  alpha = 0.01,
+  psi.par = c(2, 1.25),
+  em.steps = 100,
+  steps.output = FALSE,
+  Estep.output = FALSE,
+  tolerance = 1e-06
+)
 }
 \arguments{
 \item{data}{a data frame or matrix with the data.}

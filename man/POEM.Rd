@@ -4,9 +4,19 @@
 \alias{POEM}
 \title{Nearest Neighbour Imputation with Mahalanobis distance}
 \usage{
-POEM(data, weights, outind, errors, missing.matrix, alpha = 0.5,
-  beta = 0.5, reweight.out = FALSE, c = 5,
-  preliminary.mean.imputation = FALSE, monitor = FALSE)
+POEM(
+  data,
+  weights,
+  outind,
+  errors,
+  missing.matrix,
+  alpha = 0.5,
+  beta = 0.5,
+  reweight.out = FALSE,
+  c = 5,
+  preliminary.mean.imputation = FALSE,
+  monitor = FALSE
+)
 }
 \arguments{
 \item{data}{a data frame or matrix with the data.}

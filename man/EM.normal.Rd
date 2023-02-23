@@ -4,9 +4,20 @@
 \alias{EM.normal}
 \title{EM for multivariate normal data}
 \usage{
-EM.normal(data, weights = rep(1, nrow(data)), n = sum(weights),
-  p = ncol(data), s.counts, s.id, S, T.obs, start.mean = rep(0, p),
-  start.var = diag(1, p), numb.it = 10, Estep.output = FALSE)
+EM.normal(
+  data,
+  weights = rep(1, nrow(data)),
+  n = sum(weights),
+  p = ncol(data),
+  s.counts,
+  s.id,
+  S,
+  T.obs,
+  start.mean = rep(0, p),
+  start.var = diag(1, p),
+  numb.it = 10,
+  Estep.output = FALSE
+)
 }
 \arguments{
 \item{data}{matrix or dataframe with data.}

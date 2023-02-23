@@ -5,11 +5,22 @@
 \title{Epidemic Algorithm for imputation of multivariate outliers in incomplete
 survey data.}
 \usage{
-EAimp(data, weights, outind, reach = "max",
-  transmission.function = "root", power = ncol(data),
-  distance.type = "euclidean", duration = 5, maxl = 5, kdon = 1,
-  monitor = FALSE, threshold = FALSE, deterministic = TRUE,
-  fixedprop = 0)
+EAimp(
+  data,
+  weights,
+  outind,
+  reach = "max",
+  transmission.function = "root",
+  power = ncol(data),
+  distance.type = "euclidean",
+  duration = 5,
+  maxl = 5,
+  kdon = 1,
+  monitor = FALSE,
+  threshold = FALSE,
+  deterministic = TRUE,
+  fixedprop = 0
+)
 }
 \arguments{
 \item{data}{a data frame or matrix with the data.}

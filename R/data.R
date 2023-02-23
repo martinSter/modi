@@ -115,7 +115,7 @@
 #'
 #' Charlton, J. (ed.), Towards Effective Statistical Editing and Imputation Strategies -
 #' Findings of the Euredit project, unpublished manuscript available from Eurostat
-#' and \url{http://www.cs.york.ac.uk/euredit/}.
+#' and \url{https://www.cs.york.ac.uk/euredit/euredit-main.html}.
 #' @examples
 #' data(sepe)
 "sepe"

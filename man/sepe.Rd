@@ -4,7 +4,8 @@
 \name{sepe}
 \alias{sepe}
 \title{Sample Environment Protection Expenditure Survey.}
-\format{A data frame with 675 rows and 23 variables:
+\format{
+A data frame with 675 rows and 23 variables:
 \describe{
   \item{idnr}{identifier (anonymous)}
   \item{exp}{categorical variable where 1 = 'non-zero total expenditure' and
@@ -30,7 +31,8 @@
   \item{popsize}{number of enterprises in the population-stratum}
   \item{popempl}{number of employees in population activity group}
   \item{weight}{sampling weight (for extrapolation to the population)}
-}}
+}
+}
 \usage{
 sepe
 }
@@ -68,6 +70,6 @@ Schweiz 1992/1993, Ergebnisse einer Pilotstudie.
 
 Charlton, J. (ed.), Towards Effective Statistical Editing and Imputation Strategies -
 Findings of the Euredit project, unpublished manuscript available from Eurostat
-and \url{https://www.cs.york.ac.uk/euredit/}.
+and \url{http://www.cs.york.ac.uk/euredit/}.
 }
 \keyword{datasets}

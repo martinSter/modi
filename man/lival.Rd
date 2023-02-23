@@ -3,7 +3,7 @@
 \docType{data}
 \name{lival}
 \alias{lival}
-\title{Living Standars Measurement Survey Albania 2012}
+\title{Living Standards Measurement Survey Albania 2012}
 \format{
 A data frame with 6671 rows and 26 variables
 \describe{
@@ -77,17 +77,15 @@ However, the transformation \code{capita <- round(0.07527689 * totcons/rcons, 0)
 yields the number of persons in the household.
 }
 \note{
-With R package \code{\link{survey}} a survey design object can be built with,
-e.g., \code{svydesign(~psu + hhid, strata = ~strat, fpc = ~pi1 + pi2, weight =
-    ~weight, data = lival, pps = "brewer")}.
+With R package \code{\link{survey}} a survey design object can be built with, e.g., \code{svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,  weight= ~weight, data=lival, pps="brewer")}.
 }
 \examples{
-data(lival)
-lival$capita <- round(0.07527689 * lival$totcons / lival$rcons, 0)
 library(survey)
-lival.des <- svydesign(~psu + hhid, strata = ~strat, fpc = ~pi1 + pi2, weight =
-                       ~weight, data = lival, pps = "brewer")
-svymean(~totcons, lival.des, deff = TRUE)
+data(lival)
+lival$capita <- with(lival, round(0.07527689 * totcons / rcons, 0))
+lival.des <- svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,
+                      weight= ~weight, data=lival, pps="brewer")
+svymean(~totcons, lival.des, deff=TRUE)
 }
 \references{
 \url{http://www.instat.gov.al/media/1547/lsms_2012_eng.rar}

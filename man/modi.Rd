@@ -3,7 +3,6 @@
 \docType{package}
 \name{modi}
 \alias{modi}
-\alias{modi-package}
 \title{modi: Multivariate outlier detection for incomplete survey data.}
 \description{
 The package modi is a collection of functions for multivariate outlier

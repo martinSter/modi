@@ -4,10 +4,23 @@
 \alias{ER.normal}
 \title{Utility for ER function}
 \usage{
-ER.normal(data, weights = rep(1, nrow(data)), psi.par = c(2, 1.25),
-  np = sum(weights), p = ncol(data), s.counts, s.id, S, missing.items,
-  nb.missing.items, start.mean = rep(0, p), start.var = diag(1, p),
-  numb.it = 10, Estep.output = FALSE, tolerance = 1e-06)
+ER.normal(
+  data,
+  weights = rep(1, nrow(data)),
+  psi.par = c(2, 1.25),
+  np = sum(weights),
+  p = ncol(data),
+  s.counts,
+  s.id,
+  S,
+  missing.items,
+  nb.missing.items,
+  start.mean = rep(0, p),
+  start.var = diag(1, p),
+  numb.it = 10,
+  Estep.output = FALSE,
+  tolerance = 1e-06
+)
 }
 \arguments{
 \item{data}{matrix or dataframe with data.}

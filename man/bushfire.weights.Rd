@@ -4,7 +4,9 @@
 \name{bushfire.weights}
 \alias{bushfire.weights}
 \title{Weights for Bushfire scars.}
-\format{A vector of length 38.}
+\format{
+A vector of length 38.
+}
 \usage{
 bushfire.weights
 }

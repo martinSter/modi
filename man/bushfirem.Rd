@@ -4,7 +4,9 @@
 \name{bushfirem}
 \alias{bushfirem}
 \title{Bushfire scars with missing data.}
-\format{A data frame with 38 rows and 5 variables.}
+\format{
+A data frame with 38 rows and 5 variables.
+}
 \usage{
 bushfirem
 }

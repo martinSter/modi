@@ -4,11 +4,24 @@
 \alias{EAdet}
 \title{Epidemic Algorithm for detection of multivariate outliers in incomplete survey data}
 \usage{
-EAdet(data, weights, reach = "max", transmission.function = "root",
-  power = ncol(data), distance.type = "euclidean", maxl = 5,
-  plotting = TRUE, monitor = FALSE, prob.quantile = 0.9,
-  random.start = FALSE, fix.start, threshold = FALSE,
-  deterministic = TRUE, rm.missobs = FALSE, verbose = FALSE)
+EAdet(
+  data,
+  weights,
+  reach = "max",
+  transmission.function = "root",
+  power = ncol(data),
+  distance.type = "euclidean",
+  maxl = 5,
+  plotting = TRUE,
+  monitor = FALSE,
+  prob.quantile = 0.9,
+  random.start = FALSE,
+  fix.start,
+  threshold = FALSE,
+  deterministic = TRUE,
+  rm.missobs = FALSE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{data}{a data frame or matrix with data.}
@@ -22,7 +35,7 @@ used as the basis for the transmission function, otherwise the weighted
 \item{transmission.function}{form of the transmission function of distance d:
 \code{"step"} is a heaviside function which jumps to \code{1} at \code{d0},
 \code{"linear"} is linear between \code{0} and \code{d0}, \code{"power"} is
-\code{(beta*d+1)^(-p)} for \code{p = ncol(data)} as default, \code{"root"} is the
+\code{(beta*d+1)^(-p)} for \code{p = ncol(data)} and \code{beta <- as.single((0.01^(-1 / power) - 1) / d0))} as default, \code{"root"} is the
 function \code{1-(1-d/d0)^(1/maxl)}.}
 
 \item{power}{sets \code{p = power}.}
