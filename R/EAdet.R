@@ -24,7 +24,7 @@
 #' @param transmission.function form of the transmission function of distance d:
 #' \code{"step"} is a heaviside function which jumps to \code{1} at \code{d0},
 #' \code{"linear"} is linear between \code{0} and \code{d0}, \code{"power"} is
-#' \code{(beta*d+1)^(-p)} for \code{p = ncol(data)} as default, \code{"root"} is the
+#' \code{(beta*d+1)^(-p)} for \code{p = ncol(data)} and \code{beta <- as.single((0.01^(-1 / power) - 1) / d0))} as default, \code{"root"} is the
 #' function \code{1-(1-d/d0)^(1/maxl)}.
 #' @param power sets \code{p = power}.
 #' @param distance.type distance type in function \code{dist()}.

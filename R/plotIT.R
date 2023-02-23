@@ -1,7 +1,7 @@
 #' Plot of  infection times of the EA algorithm
 #'
 #' The (weighted) cdf of infection times is plotted. The infection times
-#' vertical jumps of the cdf is shown by the points with the
+#' jumps of the cdf are shown by the points with the
 #' same infection times stacked vertically and respecting the weights.
 #'
 #' The infection times of \code{EAdet} are the main input. In addition the weights
