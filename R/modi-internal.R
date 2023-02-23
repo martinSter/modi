@@ -118,8 +118,11 @@ EA.dist <- function(data, n, p, weights, reach,
     }
 
 	return(invisible(list(
-	  output = c(sample.spatial.median.index, max.min.di, d0),
-	  min.dist2nn = min.di, counterprobs = counterprobs)))
+	  sample.spatial.median.index = sample.spatial.median.index,
+	  max.min.di = max.min.di,
+	  transmission.distance = d0,
+	  min.di = min.di,
+	  counterprobs = counterprobs)))
 }
 
 
