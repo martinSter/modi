@@ -1,8 +1,7 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Fixed the bug in Authors@R in the DESCRIPTION.
-* Added a reference about the method to the Description field.
+* Changed maintainer Martin Sterchi to Beat Hulliger
 
 ## Test environments
 * Windows 10 (local), R 4.2.2
