@@ -101,7 +101,8 @@ on the missingness patterns.
 \examples{
 # Bushfire data set with 20\% MCAR
 data(bushfirem, bushfire.weights)
-bem.res <- BEM(bushfirem, bushfire.weights, alpha = (1 - 0.01 / nrow(bushfirem)))
+bem.res <- BEM(bushfirem, bushfire.weights,
+               alpha = (1 - 0.01 / nrow(bushfirem)))
 print(bem.res$output)
 }
 \references{

@@ -48,7 +48,7 @@ weighted.quantile <- function(x, w, prob = 0.5, plot = FALSE) {
 	w.ord <- cumsum(w) / sum(w)
 
 	# get index with length of data vector x
-	index <- 1:length(x)
+	index <- seq_along(x)
 
 	# plot weighted cdf (w.ord) if plot = TRUE
 	if (plot) {plot(x, w.ord, type = "s")}

@@ -333,7 +333,7 @@ sum(outind)
 
 ### `EAdet()` and `EAimp()`
 
-The Epidemic Algorithm (EA) is implemented in two functions: `EAdet()` contains the detection algorthm and `EAimp()` contains the imputation algorithm. The details of EA are described in [@beguin2004]. Compared to the methods shown above, the Epidemic Algorithm does not rely on a distributional assumption. The basic idea of the Epidemic Algorithm is to simulate an epidemic that starts at a central point (a spatial median) and then infects points in the neighbourhood in a stepwise manner (check the documentation for details). The last infected points are nominated as outliers. 
+The Epidemic Algorithm (EA) is implemented in two functions: `EAdet()` contains the detection algorithm and `EAimp()` contains the imputation algorithm. The details of EA are described in [@beguin2004]. Compared to the methods shown above, the Epidemic Algorithm does not rely on a distributional assumption. The basic idea of the Epidemic Algorithm is to simulate an epidemic that starts at a central point (a spatial median) and then infects points in the neighbourhood in a stepwise manner (check the documentation for details). The last infected points are nominated as outliers. 
 
 We can feed the original (log-transformed) `sepe` dataset to the detection function EAdet() in spite of the 48% of items with value zero.
 

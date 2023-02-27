@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # modi
 
-The package **modi** provides several functions for multivariate outlier detection and imputation. They may be used when analysing multivariate quantitative survey data. The distribution of such data is often not multivariate normal. Futhermore, the data is often skewed and exhibits features of a semi-continuous distribution. Finally, missing values and non-response is common. The functions provided in **modi** address those problems.
+The package **modi** provides several functions for multivariate outlier detection and imputation. They may be used when analysing multivariate quantitative survey data. The distribution of such data is often not multivariate normal. Furthermore, the data is often skewed and exhibits features of a semi-continuous distribution. Finally, missing values and non-response is common. The functions provided in **modi** address those problems.
 
 ## Overview
 
@@ -31,7 +31,7 @@ The following outlier detection and imputation functions are provided in **modi*
 
 ## Installation
 
-You can install modi from github by runing the following line of code in R:
+You can install modi from github by running the following line of code in R:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")

@@ -294,7 +294,7 @@ TRC <- function(data, weights, overlap = 3, mincor = 0,
 		}
 
     # loop over variables to be imputed
-		for (v in 1:length(variables.to.be.imputed)) {
+		for (v in seq_along(variables.to.be.imputed)) {
 
 		  observations.to.be.imputed  <- (!missing.matrix[ ,variables.to.be.imputed[v]])
 
