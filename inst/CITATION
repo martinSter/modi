@@ -1,9 +1,10 @@
 citHeader("To cite modi in publications use:")
 
-citEntry(entry = "Manual",
+bibentry(
+  bibtype = "Manual",
   title        = "modi: Multivariate outlier detection and imputation for
                  incomplete survey data",
-  author       = personList(as.person("Beat Hulliger")),
+  author       = person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch"),
   year         = "2018",
   note         = "R package version 0.1.1",
   url          = "https://CRAN.R-project.org/package=modi",
