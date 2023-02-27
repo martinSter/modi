@@ -236,7 +236,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 	  } else {
 
 	    # else start with sample spatial median index
-	    start.point <- sample.spatial.median.index
+	    start.point <- EA.dist.res$sample.spatial.median.index
 
 	  }
 	}
