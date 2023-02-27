@@ -3,7 +3,7 @@ Type: Package
 Title: Multivariate Outlier Detection and Imputation for Incomplete Survey Data
 Version: 0.1.1.9000
 Authors@R: c(
-    person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = c("aut", "cre"),
+    person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = c("aut", "cre")),
     person("Martin", "Sterchi", email = "martin.sterchi@fhnw.ch", role = "ctb"),
     person("Tobias", "Schoch", email = "tobias.schoch@fhnw.ch", role = "ctb"))
 Description: Algorithms for multivariate outlier detection when missing values
