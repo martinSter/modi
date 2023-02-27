@@ -53,7 +53,7 @@ distance of observation i.
 data(bushfirem, bushfire.weights)
 det.res <- TRC(bushfirem, weight = bushfire.weights)
 imp.res <- Winsimp(bushfirem, det.res$center, det.res$scatter, det.res$outind)
-print(imp.res$output)
+print(imp.res$n.missing.after)
 }
 \references{
 Hulliger, B. (2007), Multivariate Outlier Detection and Treatment
