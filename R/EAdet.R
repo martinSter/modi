@@ -89,11 +89,10 @@
 #' @examples
 #' data(bushfirem, bushfire.weights)
 #' det.res <- EAdet(bushfirem, bushfire.weights)
-#' print(det.res$output)
 #' @export
 #' @importFrom stats rbinom
 #' @importFrom graphics plot abline
-#' @importFrom utils memory.size
+#' @importFrom utils
 EAdet <- function(data, weights, reach = "max", transmission.function = "root",
                   power = ncol(data), distance.type = "euclidean", maxl = 5,
                   plotting = TRUE, monitor = FALSE, prob.quantile = 0.9,
@@ -103,7 +102,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
   # ------- preparation -------
 
   # transform data to matrix
-  if (!is.matrix(data)) {data <- as.matrix(data)}
+  if (!is.matrix(data)) {data <- data.matrix(data)}
 
   # number of rows
   n <- nrow(data)
@@ -205,10 +204,9 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 	# The distances calculated by EA.dist are the
 	# counterprobabilities in single precision.
   if (monitor) {
-    cat("\n memory use after distances: ", memory.size())
-    cat("\n Index of sample spatial median is ", EA.dist.res$output[1])
-    cat("\n Maximal distance to nearest neighbor is ", EA.dist.res$output[2])
-    cat("\n Transmission distance is ", EA.dist.res$output[3], "\n")
+    cat("\n Index of sample spatial median is ", EA.dist.res$sample.spatial.median.index)
+    cat("\n Maximal distance to nearest neighbor is ", EA.dist.res$max.min.di)
+    cat("\n Transmission distance is ", EA.dist.res$transmission.distance, "\n")
   }
 
 	# ------- initialisation -------
@@ -237,8 +235,8 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 
 	  } else {
 
-	    # else start with first obs.
-	    start.point <- EA.dist.res$output[1]
+	    # else start with sample spatial median index
+	    start.point <- sample.spatial.median.index
 
 	  }
 	}
@@ -341,9 +339,6 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 	# duration of infection
 	duration <- max(infection.time)
 
-	# print progress to console
-	if (verbose) {cat("\n memory use after epidemic: ", memory.size())}
-
 	# stop computation time
 	calc.time <- round(proc.time()[1] - calc.time, 5)
 
@@ -409,14 +404,7 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
   # not infected are set to high inf.time to show better
   # the healthy on a graph of infection times
 
-  if(plotting) {
-    plot.time <- inf.time
-    plot.time[!infectednfull] <- ceiling(1.2 * duration)
-    ord <- order(plot.time)
-    plot(plot.time[ord], cumsum(weights[ord]), xlab = "infection time",
-         ylab = "(weighted) cdf of infection time")
-    abline(v = cutpoint)
-  }
+  if(plotting) plotIT(inf.time, weights, cutpoint)
 
   # ------- results -------
 
@@ -442,8 +430,8 @@ EAdet <- function(data, weights, reach = "max", transmission.function = "root",
 	      transmission.function = transmission.function,
 	      power = power,
 	      maxl = maxl,
-	      max.min.di = EA.dist.res$output[2],
-	      transmission.distance = EA.dist.res$output[3],
+	      max.min.di = EA.dist.res$max.min.di,
+	      transmission.distance = EA.dist.res$transmission.distance,
 	      threshold = threshold,
 	      distance.type = distance.type,
 	      deterministic = deterministic,

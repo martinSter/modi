@@ -38,10 +38,10 @@ EA.dist <- function(data, n, p, weights, reach,
 	# Will be used for the sample spatial median and for d0
 	for (i in 1:n) {
 	    di <- counterprobs[ind.dijs(i, 1:n, n)]
-		min.di[i] <- nz.min(di)
+		  min.di[i] <- nz.min(di)
 
-		# weighted mean of distances to account for missing distances
-		means.di[i] <- sum(di * weights[-i], na.rm = TRUE) /
+		  # weighted mean of distances to account for missing distances
+		  means.di[i] <- sum(di * weights[-i], na.rm = TRUE) /
             sum(weights[-i][!is.na(di)])
 	}
 

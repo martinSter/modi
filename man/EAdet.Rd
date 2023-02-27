@@ -128,7 +128,6 @@ code used a global variable to store the distances in order to save memory.
 \examples{
 data(bushfirem, bushfire.weights)
 det.res <- EAdet(bushfirem, bushfire.weights)
-print(det.res$output)
 }
 \references{
 Béguin, C. and Hulliger, B. (2004) Multivariate outlier detection in
