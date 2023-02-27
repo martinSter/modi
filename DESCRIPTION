@@ -5,6 +5,7 @@ Version: 0.1.1.9000
 Authors@R: c(
     person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch", role = "aut"),
     person("Martin", "Sterchi", email = "martin.sterchi@fhnw.ch", role = "cre"))
+Maintainer: Beat Hulliger <beat.hulliger@fhnw.ch>
 Description: Algorithms for multivariate outlier detection when missing values
     occur. Algorithms are based on Mahalanobis distance or data depth.
     Imputation is based on the multivariate normal model or uses nearest
