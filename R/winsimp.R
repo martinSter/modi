@@ -42,7 +42,7 @@
 #' data(bushfirem, bushfire.weights)
 #' det.res <- TRC(bushfirem, weight = bushfire.weights)
 #' imp.res <- Winsimp(bushfirem, det.res$center, det.res$scatter, det.res$outind)
-#' print(imp.res$output)
+#' print(imp.res$n.missing.after)
 #' @export
 Winsimp <- function(data, center, scatter, outind, seed = 1000003) {
 

@@ -92,7 +92,6 @@
 #' @export
 #' @importFrom stats rbinom
 #' @importFrom graphics plot abline
-#' @importFrom utils
 EAdet <- function(data, weights, reach = "max", transmission.function = "root",
                   power = ncol(data), distance.type = "euclidean", maxl = 5,
                   plotting = TRUE, monitor = FALSE, prob.quantile = 0.9,
