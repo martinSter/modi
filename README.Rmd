@@ -57,7 +57,7 @@ bem.res <- BEM(bushfirem, bushfire.weights, alpha = (1 - 0.01 / nrow(bushfirem))
 bushfirem[bem.res$outind, ]
 
 # show mean per column as computed in BEM
-print(bem.res$output$center)
+print(bem.res$center)
 ```
 
 ## Acknowledgement
