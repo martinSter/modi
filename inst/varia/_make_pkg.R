@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript
+wodi <- getwd()
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 0) {
     mode <- "help"
@@ -116,3 +117,5 @@ if (mode == "pdf") {
         file.remove(pkg_pdf)
     system("R CMD Rd2pdf robsurvey")
 }
+
+setwd(wodi)

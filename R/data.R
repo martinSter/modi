@@ -195,10 +195,12 @@
 #' With R package \code{\link{survey}} a survey design object can be built with, e.g., \code{svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,  weight= ~weight, data=lival, pps="brewer")}.
 #'
 #' @examples
-#' library(survey)
 #' data(lival)
 #' lival$capita <- with(lival, round(0.07527689 * totcons / rcons, 0))
+#' \dontrun{
+#' library(survey)
 #' lival.des <- svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,
 #'                       weight= ~weight, data=lival, pps="brewer")
 #' svymean(~totcons, lival.des, deff=TRUE)
+#' }
 "lival"
