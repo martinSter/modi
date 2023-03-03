@@ -5,7 +5,10 @@ To be released as 0.1.1
 ## Improvements
 
 Flat outputs from detection and imputation functions.
+
 Complex survey data set lival. 
+
+Plotting as separate function
 
 ## Bug fixes
 Coherence between examples and functions. 

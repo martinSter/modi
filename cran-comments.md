@@ -1,7 +1,7 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Changed maintainer Martin Sterchi to Beat Hulliger
+* Shortened the version number to 0.1.1
 
 ## Test environments
 * Windows 10 (local), R 4.2.2
