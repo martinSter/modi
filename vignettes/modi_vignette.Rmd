@@ -2,7 +2,11 @@
 title: "Introduction to modi"
 author: "Beat Hulliger, Martin Sterchi"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    md_extensions: [ 
+      "-autolink_bare_uris" 
+    ]
 vignette: >
   %\VignetteIndexEntry{Introduction to modi}
   %\VignetteEngine{knitr::rmarkdown}
@@ -87,7 +91,7 @@ Furthermore, **modi** provides a set of utility functions:
 
 ## Data
 
-The **modi** package contains two datasets, first a version of the well known Bushfire dataset containing missing values (`bushfirem`), and second the `sepe` dataset which is an anonymized sample of a pilot survey on environment protection expenditures of the Swiss private economy (Federal Statistical Office). In this vignette, we will use the `sepe` dataset.
+The **modi** package contains three datasets, first a version of the well known Bushfire dataset containing missing values (`bushfirem`), second the `sepe` dataset which is an anonymized sample of a pilot survey on environment protection expenditures of the Swiss private economy (Federal Statistical Office), and third an enhanced version of the Living Standards Measurement Survey Albania 2012. In this vignette, we will use the `sepe` dataset.
 
 The units in the `sepe` dataset are enterprises and all monetary variables are in thousand Swiss Francs. The dataset contains 675 observations on 23 variables. However, we will only use the following variables:
 

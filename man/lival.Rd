@@ -40,7 +40,7 @@ lival
 }
 \description{
 The dataset is an extended version of the public micro data file of the LSMS 2012 of
-Albania (\url{http://www.instat.gov.al/media/1547/lsms_2012_eng.rar}, accessed 14 August 2020).
+Albania available at (\url{https://www.instat.gov.al/en/figures/micro-data/}, accessed 13 February 2023).
 Documentation of the LSMS 2012 of Albania is from the
 World Bank (\url{https://microdata.worldbank.org/index.php/catalog/1970},
 accessed 5 November 2020). The data set is ported to R and updated with
