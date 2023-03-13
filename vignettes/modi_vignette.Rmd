@@ -4,9 +4,6 @@ author: "Beat Hulliger, Martin Sterchi"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    md_extensions: [ 
-      "-autolink_bare_uris" 
-    ]
 vignette: >
   %\VignetteIndexEntry{Introduction to modi}
   %\VignetteEngine{knitr::rmarkdown}
