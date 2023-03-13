@@ -90,6 +90,6 @@ svymean(~totcons, lival.des, deff=TRUE)
 }
 }
 \references{
-\url{http://www.instat.gov.al/media/1547/lsms_2012_eng.rar}
+\url{https://www.instat.gov.al/en/figures/micro-data/}
 }
 \keyword{datasets}

@@ -189,7 +189,7 @@
 #'  }
 #'
 #' @references
-#' \url{http://www.instat.gov.al/media/1547/lsms_2012_eng.rar}
+#' \url{https://www.instat.gov.al/en/figures/micro-data/}
 #'
 #' @note
 #' With R package \code{\link{survey}} a survey design object can be built with, e.g., \code{svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,  weight= ~weight, data=lival, pps="brewer")}.
