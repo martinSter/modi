@@ -1,19 +1,10 @@
-citHeader("To cite modi in publications use:")
+year <- sub("-.*", "", meta$Date)
+vers <- sprintf("R package version %s", meta$Version)
 
-bibentry(
-  bibtype      = "Manual",
-  title        = "modi: Multivariate outlier detection and imputation for
-                 incomplete survey data",
-  author       = person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch"),
-  year         = "2023",
-  note         = "R package version 0.1.1",
-  url          = "https://CRAN.R-project.org/package=modi",
-
-  textVersion  =
-  paste("Beat Hulliger (2023).",
-        "modi: Multivariate outlier detection and imputation for incomplete
-        survey data.",
-        "R package version 0.1.1",
-        "https://CRAN.R-project.org/package=modi")
-)
-
+bibentry(bibtype = "Manual",
+    title   = "modi: Multivariate outlier detection and imputation for
+               incomplete survey data",
+    author  = person("Beat", "Hulliger", email = "beat.hulliger@fhnw.ch"),
+    year    = year,
+    note    = vers,
+    url     = "https://CRAN.R-project.org/package=modi")
