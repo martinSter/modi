@@ -23,6 +23,5 @@
 #' Outlier Detection in Incomplete Survey Data, Survey Methodology, Vol. 34, No. 1,
 #' pp. 91-103.
 #'
-#' @docType package
 #' @name modi
 NULL

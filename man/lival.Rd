@@ -66,7 +66,7 @@ psu sample to the strata is proportional to the number of households.
 Within strata the psu are sampled with probability proportional to number of households.
 Within psu a simple random sample of 8 households was selected.
 The weights are calibrated to population margins.
-All survey design informations except the strata and the weights are approximated
+All survey design information except the strata and the weights are approximated
 through the weights using assumptions on the design.
 Since the data set has undergone data protection measures and the survey design
 is approximate only, inference to the population does not yield exact results.
@@ -77,7 +77,8 @@ However, the transformation \code{capita <- round(0.07527689 * totcons/rcons, 0)
 yields the number of persons in the household.
 }
 \note{
-With R package \code{\link{survey}} a survey design object can be built with, e.g., \code{svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,  weight= ~weight, data=lival, pps="brewer")}.
+With the survey design function \code{\link[survey]{svydesign}} of the package \code{survey
+} a survey design object can be built: \code{svydesign(~psu + hhid , strata= ~strat, fpc= ~pi1 +pi2,  weight= ~weight, data=lival, pps="brewer")}.
 }
 \examples{
 data(lival)

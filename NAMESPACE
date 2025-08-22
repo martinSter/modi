@@ -1,5 +1,5 @@
 importFrom("graphics", "abline", "points", "plot", "title")
-importFrom("stats", "cov.wt" , "dist", "mahalanobis", "median", "pnorm",
+importFrom("stats", "cov.wt", "dist", "mahalanobis", "median", "pnorm",
     "qchisq", "qf", "qnorm", "quantile", "rbinom", "weighted.mean")
 importFrom("utils", "memory.size")
 
